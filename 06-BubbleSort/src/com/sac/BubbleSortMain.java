@@ -9,7 +9,8 @@ public class BubbleSortMain {
 		BubbleSort bubbleSort = new BubbleSort();
 		arrayElements = bubbleSort.sortArrayElements(arrayElements);
 
-		System.out.println("Sorted Array ");
+		System.out.println("Sorted Array " + arrayElements.length);
+		
 		for (int i : arrayElements) {
 			System.out.println(i);
 		}
