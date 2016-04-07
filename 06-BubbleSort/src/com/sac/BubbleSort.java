@@ -6,7 +6,7 @@ public class BubbleSort {
 	public int[] sortArrayElements(int[] arrayElements){
 		
 		
-		for(int m = arrayElements.length; m >= 0; m--){
+		for(int m = 1; m <= arrayElements.length; m++){
 			
 			for(int i = 0; i < arrayElements.length-1;i++){
 				
@@ -15,7 +15,6 @@ public class BubbleSort {
 					arrayElements[i] = arrayElements[i] + arrayElements[i+1];
 					arrayElements[i+1] = arrayElements[i] - arrayElements[i+1];
 					arrayElements[i] = arrayElements[i] - arrayElements[i+1];
-					
 				}
 			}
 		}
