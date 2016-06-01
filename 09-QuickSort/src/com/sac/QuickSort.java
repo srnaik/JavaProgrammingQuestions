@@ -3,6 +3,10 @@ package com.sac;
 public class QuickSort {
 	
 	private int[] arrayElements;
+	private int i = 0;
+	private int j = 0;
+	private int mid = 0;
+	private int  temp = 0;
 	
 	public void sortElementsUsingQUickSort(int[] arrayElements){
 		
@@ -14,16 +18,27 @@ public class QuickSort {
 		
 		int lowerIndex = 0;
 		int higherIndex = arrayElements.length-1;
-		quickSort(lowerIndex, higherIndex);
+		
+		//This method is used for ordering the elements in ascending order
+		//quickSortAscending(lowerIndex, higherIndex);
+		
+		//This method is used for ordering the elements in descending order
+		quickSortDescending(lowerIndex, higherIndex);
+		
 	}
 
 
-	private void quickSort(int lowerIndex, int higherIndex){
+	/**
+	 * Sorts the array elements in descending order
+	 * @param lowerIndex
+	 * @param higherIndex
+	 */
+	private void quickSortAscending(int lowerIndex, int higherIndex){
 		
-		int i = lowerIndex;
-		int j = higherIndex;
+		 i = lowerIndex;
+		 j = higherIndex;
 		
-		int mid = (higherIndex+lowerIndex)/2;
+		 mid = (higherIndex+lowerIndex)/2;
 		
 		while(i <= j){
 			
@@ -38,7 +53,7 @@ public class QuickSort {
 			if(i <= j){
 				
 				//Swap Numbers
-				int temp = arrayElements[i];
+				 temp = arrayElements[i];
 				arrayElements[i] = arrayElements[j];
 				arrayElements[j] = temp;
 				
@@ -48,9 +63,51 @@ public class QuickSort {
 		}
 		
 		if(j > lowerIndex)
-			quickSort(lowerIndex, j);
+			quickSortAscending(lowerIndex, j);
 		if(i < higherIndex)
-			quickSort(i, higherIndex);
+			quickSortAscending(i, higherIndex);
+		
+	}
+	
+	/**
+	 * Sorts the elements in ascending order
+	 * @param lowerIndex
+	 * @param higherIndex
+	 */
+private void quickSortDescending(int lowerIndex, int higherIndex){
+		
+		 i = lowerIndex;
+		 j = higherIndex;
+		
+		 mid = (higherIndex+lowerIndex)/2;
+		
+		while(i <= j){
+			
+			while (arrayElements[i] > arrayElements[mid]){
+				i++;
+			}
+			
+			while (arrayElements[j] < arrayElements[mid]) {
+				j--;
+			}
+			
+			if(j >= i){
+				
+				//Swap Numbers
+				temp = arrayElements[i];
+				arrayElements[i] = arrayElements[j];
+				arrayElements[j] = temp;
+				
+				i++;
+				j--;
+			}
+		}
+		
+		//Recursion
+		if(j > lowerIndex)
+			quickSortDescending(lowerIndex, j);
+		if(i < higherIndex)
+			quickSortDescending(i, higherIndex);
 		
 	}
 	
